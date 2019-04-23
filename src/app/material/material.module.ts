@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatTableModule,
@@ -15,14 +14,18 @@ import {
   MatDividerModule,
   MatDialogModule,
   MatSnackBarModule,
-  MatCardModule
+  MatCardModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatExpansionModule,
+  MatAutocompleteModule
 } from '@angular/material';
 
 @NgModule({
   declarations: [],
   imports: [
     BrowserAnimationsModule,
-    CommonModule,
     MatTableModule,
     MatToolbarModule,
     MatPaginatorModule,
@@ -32,11 +35,17 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatSnackBarModule,
     MatSidenavModule,
     MatMenuModule,
     MatDividerModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatExpansionModule,
+    MatAutocompleteModule
+
   ],
   exports:[
     MatTableModule,
@@ -48,11 +57,16 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatSnackBarModule,
     MatSidenavModule,
     MatMenuModule,
     MatDividerModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatExpansionModule,
+    MatAutocompleteModule
   ]
 })
 export class MaterialModule { }

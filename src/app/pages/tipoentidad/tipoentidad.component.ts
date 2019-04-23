@@ -18,8 +18,6 @@ export class TipoentidadComponent implements OnInit {
   @ViewChild(MatPaginator) paginator : MatPaginator;
   @ViewChild(MatSort)sort:MatSort; 
  
-
-
   constructor( private tipoentidadService: TipoentidadService , private snackBar: MatSnackBar , private dialog: MatDialog) { }
 
   ngOnInit() {
@@ -48,7 +46,6 @@ export class TipoentidadComponent implements OnInit {
       data:med
     });
   }
-
 
   filter(filterValue: string) {
     filterValue = filterValue.trim();

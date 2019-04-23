@@ -1,0 +1,40 @@
+
+<mat-card>Registrar Insumos</mat-card>
+
+<form class="example-container" [formGroup]="form" #frmInsumo="ngForm" (ngSubmit)="operar()">
+
+  <mat-form-field >
+    <input matInput placeholder="Nombre" required formControlName="nombre">
+  </mat-form-field>
+<br>
+<mat-form-field>
+<mat-select placeholder="Marca" [(value)]="idMarcaSeleccionado">
+  <mat-option *ngFor="let m of marcas" [value]="m.idMarca">
+    {{m.nombre}}
+  </mat-option>
+</mat-select>
+</mat-form-field>
+<br>
+<mat-form-field>
+  <mat-select placeholder="Nombre Proveedor" [(value)]="idProveedorInsumoSeleccionado">
+    <mat-option *ngFor="let p of proveedorinsumos" [value]="p.idProveedorInsumo">
+      {{p.nombreProveedor}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<mat-form-field >
+  <input matInput placeholder="Descripcion" required formControlName="descripcion">
+</mat-form-field>
+
+  
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmInsumo.invalid">
+      <mat-icon>done</mat-icon>
+      <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink='/insumo' type="button">
+      <mat-icon>close</mat-icon>
+      <span>Cancelar</span>
+    </button>
+  </form>

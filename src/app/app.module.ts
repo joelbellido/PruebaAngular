@@ -1,47 +1,59 @@
+
 import { MaterialModule } from './material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TipoComponent } from './pages/tipo/tipo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PersonaNaturalComponent } from './pages/persona-natural/persona-natural.component';
 import { TipoentidadComponent } from './pages/tipoentidad/tipoentidad.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { TiposolicitudComponent } from './pages/tiposolicitud/tiposolicitud.component';
-import { TipoproductoComponent } from './pages/tipoproducto/tipoproducto.component';
-import { PagesComponent } from './pages/pages.component';
 import { InsumoComponent } from './pages/insumo/insumo.component';
 import { DialogoComponent } from './pages/tipoentidad/dialogo/dialogo.component';
-import { FormsModule } from '@angular/forms';
-import { TipoproductoDialogoComponent } from './pages/tipoproducto/tipoproducto-dialogo/tipoproducto-dialogo.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ProveedorinsumoComponent } from './pages/proveedorinsumo/proveedorinsumo.component';
+import { ProveedorinsumoDialogoComponent } from './pages/proveedorinsumo/proveedorinsumo-dialogo/proveedorinsumo-dialogo.component';
+import { MarcaComponent } from './pages/marca/marca.component';
+import { MarcaDialogoComponent } from './pages/marca/marca-dialogo/marca-dialogo.component';
+import { InsumoEdicionComponent } from './pages/insumo/insumo-edicion/insumo-edicion.component';
+import { MatFormFieldModule } from '@angular/material';
+
 
 @NgModule({
   
   declarations: [
     AppComponent,
-    TipoComponent,
     PersonaNaturalComponent,
     TipoentidadComponent,
     ContactoComponent,
     TiposolicitudComponent,
-    TipoproductoComponent,
-    PagesComponent,
     InsumoComponent,
     DialogoComponent,
-    TipoproductoDialogoComponent
+    ProveedorinsumoComponent,
+    ProveedorinsumoDialogoComponent,
+    MarcaComponent,
+    MarcaDialogoComponent,
+    InsumoEdicionComponent
+  
     
   ],
   entryComponents:[
     DialogoComponent,
-    TipoproductoDialogoComponent
+    ProveedorinsumoDialogoComponent,
+    MarcaDialogoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
+  
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
