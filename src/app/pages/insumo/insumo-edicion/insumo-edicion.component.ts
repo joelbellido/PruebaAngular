@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl , FormBuilder  } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Proveedorinsumo } from 'src/app/_model/proveedorinsumo';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-insumo-edicion',
@@ -16,31 +17,26 @@ export class InsumoEdicionComponent implements OnInit {
 
   marcas:Marca[]=[];
   proveedorinsumos:Proveedorinsumo[]=[];
-  idMarcaSeleccionado: number;
-  idProveedorInsumoSeleccionado: number;
+  
   form :FormGroup;
-  myControlMarca: FormControl = new FormControl();
-  myControlProveedorInsumo: FormControl = new FormControl();
-
-  filteredOptions: Observable<any[]>;
-  filteredOptionsMedico: Observable<any[]>;
+ 
 
   constructor(private builder: FormBuilder,private insumoService:InsumoService ,private proveedorinsumoService:ProveedorinsumoService, private marcaService:MarcaService) { }
 
   ngOnInit() {
  
-/*
     this.form = this.builder.group({
-      'marca': this.myControlMarca,
-      //'especialidad': new FormControl(),
-      'proveedorinsumo': this.myControlProveedorInsumo
-      //'diagnostico': new FormControl(''),
-      //'tratamiento': new FormControl('')
+      'nombre': new FormControl(''),
+      'marca': new FormControl(),
+      'proveedorInsumo': new FormControl(),
+      'descripcion': new FormControl('')
     });
-*/
 
-   this.listarMarcas();
-   this.listarProveedorInsumos();
+    this.listarMarcas();
+    this.listarProveedorInsumos();
+
+  
+
 
 
   }
@@ -55,6 +51,7 @@ operar(){
       this.marcas = data;
     })
   }
+ 
 
   listarProveedorInsumos(){
     this.proveedorinsumoService.listar().subscribe(data=>{

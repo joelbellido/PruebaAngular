@@ -6,5 +6,4 @@ export class Insumo{
     marca:Marca;
     proveedorinsumo:Proveedorinsumo;
     descripcion:string;
-    foto:string;
 }
