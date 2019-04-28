@@ -1,8 +1,9 @@
+import { Proveedorinsumo } from 'src/app/_model/proveedorinsumo';
 import { Subject } from 'rxjs';
 import { HOST } from './../_shared/var.constants';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Proveedorinsumo } from '../_model/proveedorinsumo';
+
 
 @Injectable({
   providedIn: 'root'

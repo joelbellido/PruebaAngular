@@ -3,22 +3,27 @@
 
 <form class="example-container" [formGroup]="form" #frmInsumo="ngForm" (ngSubmit)="operar()">
 <br>
+<div [hidden]="true">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="ID" required formControlName="id">
+  </mat-form-field>
+</div>
+
   <mat-form-field >
     <input matInput placeholder="Nombre" required formControlName="nombre">
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select placeholder="Marca" [(value)]="marcaSeleccionada" formControlName="marca">
-      <mat-option *ngFor="let m of marcas" [value]="m">
+    <mat-select placeholder="Marca" [(value)]="idMarcaSeleccionada" formControlName="marca">
+      <mat-option *ngFor="let m of marcas" [value]="m.idMarca">
         {{ m.nombre }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
-
   <mat-form-field>
-    <mat-select placeholder="Nombre Proveedor" [(value)]="proveedorInsumoSeleccionada" formControlName="proveedorInsumo">
-      <mat-option *ngFor="let n of proveedorinsumos" [value]="n">
+    <mat-select placeholder="Nombre Proveedor" [(value)]="idProveedorInsumoSeleccionada" formControlName="proveedorInsumo">
+      <mat-option *ngFor="let n of proveedorinsumos" [value]="n.idProveedorInsumo">
         {{ n.nombreProveedor }}
       </mat-option>
     </mat-select>

@@ -25,16 +25,18 @@ marca :Marca;
 
   operar (){
     if (this.marca != null && this.marca.idMarca > 0) {
+      console.log(this.marca);
       this.marcaService.modificar(this.marca).subscribe(data => {
+        console.log(this.marca);
         this.marcaService.listar().subscribe(marcas => {
-          this.marcaService.marcaCambio.next(marcas);
+          this.marcaService.marcaCambios.next(marcas);
           this.marcaService.mensajeCambio.next("Se modifico");
         });
       });
     } else {
       this.marcaService.registrar(this.marca).subscribe(data => {
         this.marcaService.listar().subscribe(marcas => {
-          this.marcaService.marcaCambio.next(marcas);
+          this.marcaService.marcaCambios.next(marcas);
           this.marcaService.mensajeCambio.next("Se registro");
         });
       });

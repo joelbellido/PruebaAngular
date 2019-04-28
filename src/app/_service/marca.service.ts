@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 })
 export class MarcaService {
 
-  marcaCambio = new Subject<Marca[]>();
+  marcaCambios = new Subject<Marca[]>();
   mensajeCambio = new Subject<string>();
   
   url: string = `${HOST}/marcas`;

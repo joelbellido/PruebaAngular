@@ -20,7 +20,7 @@ export class InsumoService {
     return this.http.get<Insumo[]>(this.url);
   }
   
-  listarProveedorInsumoPorId(id: number) {
+  listarPorId(id: number) {
     return this.http.get<Insumo>(`${this.url}/${id}`);
   }
   

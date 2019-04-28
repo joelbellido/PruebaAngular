@@ -20,7 +20,7 @@ export class MarcaComponent implements OnInit {
   constructor(private  marcaService : MarcaService , private snackBar: MatSnackBar, private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.marcaService.marcaCambio.subscribe(data => {
+    this.marcaService.marcaCambios.subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -54,7 +54,7 @@ export class MarcaComponent implements OnInit {
   eliminar(marca:Marca){
     this.marcaService.eliminar(marca.idMarca).subscribe(data => {
       this.marcaService.listar().subscribe(marca => {
-        this.marcaService.marcaCambio.next(marca);
+        this.marcaService.marcaCambios.next(marca);
         this.marcaService.mensajeCambio.next("Se elimino");
       });
 

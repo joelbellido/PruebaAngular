@@ -4,6 +4,6 @@ export class Insumo{
     idInsumo: number;
     nombre: string;
     marca:Marca;
-    proveedorinsumo:Proveedorinsumo;
+    proveedorInsumo:Proveedorinsumo;
     descripcion:string;
 }
