@@ -25,9 +25,7 @@ marca :Marca;
 
   operar (){
     if (this.marca != null && this.marca.idMarca > 0) {
-      console.log(this.marca);
       this.marcaService.modificar(this.marca).subscribe(data => {
-        console.log(this.marca);
         this.marcaService.listar().subscribe(marcas => {
           this.marcaService.marcaCambios.next(marcas);
           this.marcaService.mensajeCambio.next("Se modifico");

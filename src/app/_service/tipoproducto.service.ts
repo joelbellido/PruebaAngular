@@ -9,7 +9,7 @@ import { Tipoproducto } from '../_model/tipoproducto';
 })
 export class TipoproductoService {
 
-  tipoProductosCambio = new Subject<Tipoproducto[]>();
+  tipoProductoCambios = new Subject<Tipoproducto[]>();
   mensajeCambio = new Subject<string>();
   
   url: string = `${HOST}/tipoProductos`;

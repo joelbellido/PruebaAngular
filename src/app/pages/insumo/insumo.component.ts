@@ -45,8 +45,6 @@ export class InsumoComponent implements OnInit {
     });
   }
   */
-
-  
   filter(filterValue: string) {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();

@@ -1,3 +1,4 @@
+import { TipoproductoComponent } from './pages/tipoproducto/tipoproducto.component';
 import { InsumoEdicionComponent } from './pages/insumo/insumo-edicion/insumo-edicion.component';
 import { InsumoComponent } from './pages/insumo/insumo.component';
 import { MarcaComponent } from './pages/marca/marca.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path :'tipoentidad',component: TipoentidadComponent},
   {path :'proveedorinsumo',component:ProveedorinsumoComponent},
   {path :'marca',component:MarcaComponent},
+  {path :'tipoproducto',component:TipoproductoComponent},
   {path :'insumo',component:InsumoComponent , children:[
     {path :'nuevo',component:InsumoEdicionComponent},
     {path :'edicion/:id',component:InsumoEdicionComponent}

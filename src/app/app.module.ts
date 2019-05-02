@@ -18,6 +18,8 @@ import { MarcaComponent } from './pages/marca/marca.component';
 import { MarcaDialogoComponent } from './pages/marca/marca-dialogo/marca-dialogo.component';
 import { InsumoEdicionComponent } from './pages/insumo/insumo-edicion/insumo-edicion.component';
 import { MatFormFieldModule } from '@angular/material';
+import { TipoproductoComponent } from './pages/tipoproducto/tipoproducto.component';
+import { TipoproductoDialogoComponent } from './pages/tipoproducto/tipoproducto-dialogo/tipoproducto-dialogo.component';
 
 
 @NgModule({
@@ -34,13 +36,16 @@ import { MatFormFieldModule } from '@angular/material';
     ProveedorinsumoDialogoComponent,
     MarcaComponent,
     MarcaDialogoComponent,
-    InsumoEdicionComponent
+    InsumoEdicionComponent,
+    TipoproductoComponent,
+    TipoproductoDialogoComponent
   
     
   ],
   entryComponents:[
     DialogoComponent,
     ProveedorinsumoDialogoComponent,
+    TipoproductoDialogoComponent,
     MarcaDialogoComponent
   ],
   imports: [

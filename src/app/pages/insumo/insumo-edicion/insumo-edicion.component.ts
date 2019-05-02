@@ -1,4 +1,4 @@
-
+import { MatSnackBar } from '@angular/material';
 import { Marca } from './../../../_model/marca';
 import { ProveedorinsumoService } from 'src/app/_service/proveedorinsumo.service';
 import { MarcaService } from './../../../_service/marca.service';
@@ -30,7 +30,7 @@ export class InsumoEdicionComponent implements OnInit {
 
 
 
-  constructor(private builder: FormBuilder, private insumoService: InsumoService, private proveedorinsumoService: ProveedorinsumoService, private marcaService: MarcaService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private builder: FormBuilder, private insumoService: InsumoService, private proveedorinsumoService: ProveedorinsumoService, private marcaService: MarcaService, private route: ActivatedRoute, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
 
@@ -59,7 +59,6 @@ export class InsumoEdicionComponent implements OnInit {
         this.form = this.builder.group({
           'id': new FormControl(data.idInsumo),
           'nombre': new FormControl(data.nombre),
-          //'marca': new FormControl(data.marca),
           'marca': new FormControl(data.marca.nombre),
           'proveedorInsumo': new FormControl(data.proveedorInsumo.nombreProveedor),
           'descripcion': new FormControl(data.descripcion)
@@ -72,10 +71,33 @@ export class InsumoEdicionComponent implements OnInit {
   }
   operar() {
     //aqui cuando mandes a registrar tienes que crear un objeto marca
-  //   let marcaSeleccion = new Marca();
-  //  marcaSeleccion.idMarca = this. idMarcaSeleccioanda;
-
+    let marcaSeleccion = new Marca();
+    marcaSeleccion.idMarca = this. idMarcaSeleccionada;
+    let proveedorSeleccion = new Proveedorinsumo();
+    proveedorSeleccion.idProveedorInsumo = this. idProveedorInsumoSeleccionada;
     //y ese objeto local usarlo para tus futuras llamadas a tus services
+    let insum = new Insumo();
+    insum.idInsumo = this.form.value['id'];
+    insum.nombre = this.form.value['nombre'];
+    insum.marca = marcaSeleccion;    
+    insum.proveedorInsumo = proveedorSeleccion
+    insum.descripcion = this.form.value['descripcion'];
+    if (this.edicion) {
+      this.insumoService.modificar(insum).subscribe(() => {
+        this.insumoService.listar().subscribe(data => {
+          this.insumoService.insumoCambio.next(data);
+          this.insumoService.mensajeCambio.next('SE MODIFICO');
+        });
+      });
+    } else {
+      this.insumoService.registrar(insum).subscribe(() => {
+        this.insumoService.listar().subscribe(data => {
+          this.insumoService.insumoCambio.next(data);
+          this.insumoService.mensajeCambio.next('SE REGISTRO');
+        });
+      });
+    }
+    this.router.navigate(['insumo']);  
   }
   listarMarcas() {
     this.marcaService.listar().subscribe(data => {

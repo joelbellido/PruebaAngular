@@ -1,7 +1,7 @@
+import { TipoproductoService } from './../../../_service/tipoproducto.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Tipoproducto } from './../../../_model/tipoproducto';
 import { Component, OnInit, Inject } from '@angular/core';
-import { Tipoproducto } from 'src/app/_model/tipoproducto';
-import { TipoproductoService } from 'src/app/_service/tipoproducto.service';
 
 @Component({
   selector: 'app-tipoproducto-dialogo',
@@ -11,8 +11,7 @@ import { TipoproductoService } from 'src/app/_service/tipoproducto.service';
 export class TipoproductoDialogoComponent implements OnInit {
 
   tipoproducto :Tipoproducto;
-
-  constructor(private dialogRef: MatDialogRef<TipoproductoDialogoComponent>, @Inject(MAT_DIALOG_DATA) private data: Tipoproducto, private tipoproductoService: TipoproductoService) { }
+  constructor(private dialogRef: MatDialogRef<TipoproductoDialogoComponent >, @Inject(MAT_DIALOG_DATA) private data: Tipoproducto, private tipoproductoService: TipoproductoService) { }
 
   ngOnInit() {
     this.tipoproducto = new Tipoproducto();
@@ -27,15 +26,15 @@ export class TipoproductoDialogoComponent implements OnInit {
   operar (){
     if (this.tipoproducto != null && this.tipoproducto.idTipoProducto > 0) {
       this.tipoproductoService.modificar(this.tipoproducto).subscribe(data => {
-        this.tipoproductoService.listar().subscribe(tipoProductos => {
-          this.tipoproductoService.tipoProductosCambio.next(tipoProductos);
+        this.tipoproductoService.listar().subscribe(tipoproductos => {
+          this.tipoproductoService.tipoProductoCambios.next(tipoproductos);
           this.tipoproductoService.mensajeCambio.next("Se modifico");
         });
       });
     } else {
       this.tipoproductoService.registrar(this.tipoproducto).subscribe(data => {
-        this.tipoproductoService.listar().subscribe(tipoProductos => {
-          this.tipoproductoService.tipoProductosCambio.next(tipoProductos);
+        this.tipoproductoService.listar().subscribe(tipoproductos => {
+          this.tipoproductoService.tipoProductoCambios.next(tipoproductos);
           this.tipoproductoService.mensajeCambio.next("Se registro");
         });
       });
