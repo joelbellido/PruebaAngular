@@ -30,7 +30,7 @@ export class TipoentidadComponent implements OnInit {
     this.tipoentidadService.mensajeCambio.subscribe(data=> {
       this.snackBar.open(data,'Aviso',{duration:2000});
     });
-
+    
     this.tipoentidadService.listar().subscribe(data => {
       this.dataSource=new MatTableDataSource(data);
       this.dataSource.paginator=this.paginator;

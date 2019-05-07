@@ -20,6 +20,9 @@ import { InsumoEdicionComponent } from './pages/insumo/insumo-edicion/insumo-edi
 import { MatFormFieldModule } from '@angular/material';
 import { TipoproductoComponent } from './pages/tipoproducto/tipoproducto.component';
 import { TipoproductoDialogoComponent } from './pages/tipoproducto/tipoproducto-dialogo/tipoproducto-dialogo.component';
+import { ProveedorproductoComponent } from './pages/proveedorproducto/proveedorproducto.component';
+import { ProveedorproductoDialogoComponent } from './pages/proveedorproducto/proveedorproducto-dialogo/proveedorproducto-dialogo.component';
+import { ProductoComponent } from './pages/producto/producto.component';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { TipoproductoDialogoComponent } from './pages/tipoproducto/tipoproducto-
     MarcaDialogoComponent,
     InsumoEdicionComponent,
     TipoproductoComponent,
-    TipoproductoDialogoComponent
+    TipoproductoDialogoComponent,
+    ProveedorproductoComponent,
+    ProveedorproductoDialogoComponent,
+    ProductoComponent
   
     
   ],
@@ -46,6 +52,7 @@ import { TipoproductoDialogoComponent } from './pages/tipoproducto/tipoproducto-
     DialogoComponent,
     ProveedorinsumoDialogoComponent,
     TipoproductoDialogoComponent,
+    ProveedorproductoDialogoComponent,
     MarcaDialogoComponent
   ],
   imports: [
